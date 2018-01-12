@@ -35,8 +35,10 @@ $output = "Failed";
 $output = shell_exec ('python GenVision.py ' . $target_file .  ' 2>&1');
 if (strpos($output, "FEMALE") !== false){ 
     $gender = "Female";
-}else{
+}elseif(strpos($output, "male") !== false){
    $gender = "Male";
+}else{
+   $gender = "Server Error";
 }
 //echo $output;
 ?>
